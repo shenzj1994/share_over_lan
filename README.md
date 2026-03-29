@@ -2,6 +2,9 @@
 
 A simple, lightweight, and blazing-fast web application designed to smoothly share text messages and files across devices operating on your Local Area Network (Wi-Fi) without requiring authentication or any third-party cloud syncing!
 
+> [!WARNING]
+> This application is intentionally built for fast, frictionless sharing on **trusted local home networks**. It contains **zero authentication or user isolation**, meaning anyone connected to your Wi-Fi who accesses the app can view, copy, download, and **permanently delete** everyone's messages and files. Do not host this on public, enterprise, or untrusted networks!
+
 ## Features
 - **Real-Time Cross-Device Sharing**: Broadcast messages and upload files natively between your computers, phones, and tablets across your local Wi-Fi.
 - **Modern Premium UI/UX**: Aesthetic dark-mode interface featuring glassmorphism, responsive inputs, interactive micro-animations, and instant "Click-to-Copy" text utilities.
