@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAN ShareHub</title>
+    <meta name="description" content="Share messages and files across your local network easily.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                <h1>ShareHub</h1>
+            </div>
+            <p class="subtitle">Broadcast to your network</p>
+        </header>
+        
+        <main class="grid-layout">
+            <!-- Messages Section -->
+            <section class="panel glass">
+                <div class="panel-header flex-between">
+                    <h2>Messages</h2>
+                    <button type="button" class="btn secondary-btn delete-all-btn" onclick="clearAllMessages()" title="Clear all messages">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                        Clear All
+                    </button>
+                </div>
+                <div class="messages-container" id="messages-list">
+                    <!-- Messages populated here via JS -->
+                </div>
+                <div class="input-area">
+                    <form id="message-form">
+                        <input type="text" id="message-input" placeholder="Type a message..." required autocomplete="off">
+                        <button type="submit" class="btn primary-btn" aria-label="Send">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Files Section -->
+            <section class="panel glass">
+                <div class="panel-header flex-between">
+                    <h2>Files</h2>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button type="button" class="btn secondary-btn delete-all-btn icon-only" onclick="clearAllFiles()" title="Clear all files">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                        </button>
+                        <label for="file-upload" class="btn secondary-btn upload-btn" style="cursor: pointer;">
+                            <span>Upload File</span>
+                            <input type="file" id="file-upload" style="display: none;">
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Upload Progress Indicator -->
+                <div id="upload-progress-container" class="upload-progress-container hidden">
+                    <div class="progress-bar-bg">
+                        <div id="upload-progress-bar" class="progress-bar-fill"></div>
+                    </div>
+                    <span id="upload-status-text" class="status-text">Uploading...</span>
+                </div>
+
+                <div class="files-container" id="files-list">
+                    <!-- Files populated here via JS -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="/app.js"></script>
+</body>
+</html>
